@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import BoxInput from "./components/Boxinput";
+
 import "./App.css";
 
 function App() {
@@ -9,7 +7,7 @@ function App() {
   const [X, setX] = useState([]);
   const [Y, setY] = useState([]);
   const positions = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  const [buttonLabels, setButtonLabels] = useState({});
+  const [playerInput, setPlayerInput] = useState({});
 
 
   function switchPlayer(e, val1, val2) {
@@ -20,8 +18,8 @@ function App() {
 
   const play = (position,player) => {
     
-    if (!buttonLabels[position]) {
-      setButtonLabels((prev) =>({
+    if (!playerInput[position]) {
+      setPlayerInput((prev) =>({
         ...prev,[position]:player,
       }))
     }
@@ -51,7 +49,7 @@ function App() {
       <div className="grid grid-cols-3">
         {positions.map((position) => (
           <div key={position} className="bg-white border-2 border-emerald-500" onClick={()=>{play(position,player)}}>
-            <div className="text-gray-700 uppercase text-2xl p-10">{buttonLabels[position] || ""}</div>
+            <div className="text-gray-700 uppercase text-2xl p-10">{playerInput[position] || ""}</div>
           </div>
         ))}
       </div>
