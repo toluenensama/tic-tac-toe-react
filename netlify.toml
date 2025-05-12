@@ -1,0 +1,14 @@
+[build]
+  command = "npm run build"
+  publish = "dist"  # use "build" for Create React App
+
+[dev]
+  command = "npm run dev"
+  targetPort = 5173  # Vite default dev server port
+  port = 8888        # Netlify Dev proxy port
+  framework = "vite"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
