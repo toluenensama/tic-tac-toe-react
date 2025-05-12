@@ -49,6 +49,8 @@ function App() {
     setPlayer((Input) => switchPlayer(Input, "X", "O"));
   };
 
+  
+
   useEffect(() => {
     const winCombos = [
       [1, 2, 3],
